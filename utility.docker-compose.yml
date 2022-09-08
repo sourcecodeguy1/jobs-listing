@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  npm:
+    build:
+      context: .
+      dockerfile: utility.Dockerfile
+    volumes:
+      - ./:/app
+    stdin_open: true
+    tty: true
+
