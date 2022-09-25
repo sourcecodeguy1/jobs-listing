@@ -1,15 +1,15 @@
 version: '3.7'
 services:
-  react-app:
+  jobs:
     build:
       context: .
-      dockerfile: dev.Dockerfile
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "8082:80"
     restart: always
     environment:
       - CHOKIDAR_USEPOLLING=true
-    container_name: react-app
+    container_name: jobs_container
     volumes:
       - /app/node_modules
       - ./:/app

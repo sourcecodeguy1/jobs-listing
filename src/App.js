@@ -10,7 +10,7 @@ function App() {
     const [jobs, setJobs] = useState([]);
     const [data, setData] = useState([]);
 
-    const URL = "http://localhost:3000/data.json";
+    const URL = "https://jobs.juliowebmaster.com/data.json";
 
     useEffect(() => {
         axios.get(URL).then((response) => {
