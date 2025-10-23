@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Vultr Server
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.6.1
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
