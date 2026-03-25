@@ -68,7 +68,13 @@ jobs:
             echo "Pulling versioned image for Jobs Listing..."
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_REPO }}:${JOBS_TAG}
 
+            echo "Removing any stale containers..."
+            docker rm -f jobs_container 2>/dev/null || true
+
             echo "Restarting Jobs Listing service only..."
-            docker-compose up -d jobs
+            JOBS_TAG=${JOBS_TAG} docker compose up -d --force-recreate jobs
+
+            echo "Cleaning up old images..."
+            docker image prune -f
 
             echo "Deployment completed! ✅"
